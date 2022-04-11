@@ -50,13 +50,17 @@ bike_pd = bike_pd.rename(columns={
     7:"nb_docks",
     8:"dat_modified"})
 
-
+# Project id used in GCP
 project_id = "tfl_project"
 
+# Table which bike data will be appended to
 bike_table = "tfl_data.bikes"
 
+# Table which crowd data will be appended to
 crowd_table = "tfl_data.crowd"
 
+# Uses gbq to pass data into bigquery
 pandas_gbq.to_gbq(bike_pd, bike_table, project_id=project_id, if_exists="append")
 
-pandas_gbq.to_gbq(crowd_pd, crowd_table, project_id=project_id, if_exists="append)
+# Uses gbq to pass data into bigquery
+pandas_gbq.to_gbq(crowd_pd, crowd_table, project_id=project_id, if_exists="append")
