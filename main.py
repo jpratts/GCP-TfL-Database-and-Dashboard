@@ -1,6 +1,10 @@
 # Uses tflwrapper, a Python wrapper for the Transport for London API, to pull data about bike point use around Greater London. 
 from tflwrapper import bikePoint, crowding
+from google.cloud import bigquery
 import pandas as pd
+import pandas_gbq
+import datetime
+
 
 # Sign-up to TFL Open Data service for API details
 app_key = "reference_API_key_storage_here"
@@ -47,3 +51,12 @@ bike_pd = bike_pd.rename(columns={
     8:"dat_modified"})
 
 
+project_id = "tfl_project"
+
+bike_table = "tfl_data.bikes"
+
+crowd_table = "tfl_data.crowd"
+
+pandas_gbq.to_gbq(bike_pd, bike_table, project_id=project_id, if_exists="append")
+
+pandas_gbq.to_gbq(crowd_pd, crowd_table, project_id=project_id, if_exists="append)
