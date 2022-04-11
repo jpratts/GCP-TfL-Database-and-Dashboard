@@ -50,6 +50,12 @@ bike_pd = bike_pd.rename(columns={
     7:"nb_docks",
     8:"dat_modified"})
 
+# Pass in GCP credentials
+credentials = ...  # From google-auth or pydata-google-auth library
+
+# Update the in-memory credentials cache
+pandas_gbq.context.credentials = credentials
+
 # Project id used in GCP
 project_id = "tfl_project"
 
