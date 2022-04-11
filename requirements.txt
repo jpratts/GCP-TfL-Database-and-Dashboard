@@ -1,0 +1,7 @@
+# Function dependencies, for example:
+# package>=version
+tflwrapper
+pandas
+datatime
+google-auth
+pandas_gbq
