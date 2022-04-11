@@ -40,7 +40,7 @@ def pull_data(event, context):
         ])
         n += 1)
 
-      bike_pd = pd.DataFrame(bike_data)
+      bike_pd = pd.DataFrame(bike_list)
       bike_pd = bike_pd.rename(columns={
         0:"bikepoint_number",
         1:"location_name",
