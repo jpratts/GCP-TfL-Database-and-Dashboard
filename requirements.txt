@@ -1,7 +1,7 @@
-# Function dependencies, for example:
+# Dependencies:
 # package>=version
 tflwrapper
 pandas
-datatime
+datetime
 google-auth
-pandas_gbq
+pandas-gbq
