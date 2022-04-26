@@ -1,6 +1,6 @@
 # London Bicycle Usage Database & Dashboard Project
 -----------------------------
-Docuemntation in Progress
+Documentation in Progress
 
 Motivation: 
 
