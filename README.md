@@ -28,7 +28,7 @@ We will create our entire pipeline, from data extraction to dashboarding, using 
 - Pub/Sub topic: Is used to trigger the Cloud Function which is what holds the extraction Python script. 
 - Cloud Function: Contains a Python script that pulls data from API and writes it to Big Query.
 - Big Query: GCPs Data Warehouse offering. Queried using SQL and fed with data daily from the Cloud function.
-- Data Studio: Dashboard of results weekly updated, linked to the BigQuery tables.
+- Data Studio: Dashboard of TfL usage and predictions, updated daily.
 - Big Query ML: Allows for the execution of ML models in standard SQL queries. We will use this to make some basic predictions on bicycle usage. 
 
 --------------------
