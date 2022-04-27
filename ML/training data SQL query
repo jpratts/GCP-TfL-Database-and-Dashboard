@@ -1,3 +1,8 @@
+# Our pipeline is automatically collecting data from various APIs and storing them in various tables.
+
+## How can we turn this into a training dataset for our ML model? We can submit a SQL query on GCP to create a new table holding the information of interest.
+
+```sql
 INSERT INTO 
 `PROJECT_NAME.tfl_data.ml_train`
 (percentageOfBaseline, feels_day, clouds, uv, date, dow)
@@ -15,3 +20,4 @@ FROM
 
 INNER JOIN PROJECT_NAME.tfl_data.weather_table AS wt
 ON ct.date = wt.dt;
+```
