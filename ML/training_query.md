@@ -4,35 +4,38 @@
 
 ```sql
 INSERT INTO 
-`PROJECT_NAME.tfl_data.ml_train`
-(percentageOfBaseline, feels_day, clouds, uv, date, dow)
+  `PROJECT_NAME.tfl_data.ml_train`
+  (percentageOfBaseline, feels_day, clouds, uv, date, dow)
 
 SELECT
-ct.percentageOfBaseline,
-wt.feels_day,
-wt.clouds,
-wt.uv,
-wt.dt,
-CAST(EXTRACT(DAYOFWEEK FROM (PARSE_DATE("%d/%m/%Y", wt.dt))) AS STRING ) AS dow
+  ct.percentageOfBaseline,
+  wt.feels_day,
+  wt.clouds,
+  wt.uv,
+  wt.dt,
+  CAST(EXTRACT(DAYOFWEEK FROM (PARSE_DATE("%d/%m/%Y", wt.dt))) AS STRING ) AS dow
 
 FROM
   `tfl-PROJECT_NAME.tfl_data.crowd_table` AS ct
 
-INNER JOIN PROJECT_NAME.tfl_data.weather_table AS wt
-ON ct.date = wt.dt;
+INNER JOIN
+  PROJECT_NAME.tfl_data.weather_table AS wt
+ON
+  ct.date = wt.dt;
 ```
 
 ### Using this table, we can now create a simple regression model using BigQuery ML. This is also done via a query.
 
 ```sql
-CREATE OR REPLACE MODEL `tfl-PROJECT_NAME.tfl_data.crowd_model`
+CREATE OR REPLACE MODEL
+  `tfl-PROJECT_NAME.tfl_data.crowd_model`
 OPTIONS
   (model_type='linear_reg',
   input_label_cols=['percentageOfBaseline']) AS
 SELECT
   *
 FROM
-  `PROJECT_NAME.tfl_data.ml_train`
+  PROJECT_NAME.tfl_data.ml_train
 WHERE
   percentageOfBaseline IS NOT NULL
 
