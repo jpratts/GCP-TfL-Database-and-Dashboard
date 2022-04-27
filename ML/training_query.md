@@ -1,6 +1,6 @@
 # Our pipeline is now automatically collecting data from various APIs and storing them in various tables. How can we turn this into a training dataset for our ML model? 
 
-## We can submit a SQL query on GCP to create a new table holding the information of interest.
+### We can submit a SQL query on GCP to create a new table holding the information of interest.
 
 ```sql
 INSERT INTO 
@@ -21,3 +21,20 @@ FROM
 INNER JOIN PROJECT_NAME.tfl_data.weather_table AS wt
 ON ct.date = wt.dt;
 ```
+
+### Using this table, we can now create a simple regression model using BigQuery ML. This is also done via a query.
+
+```sql
+CREATE OR REPLACE MODEL `tfl-PROJECT_NAME.tfl_data.crowd_model`
+OPTIONS
+  (model_type='linear_reg',
+  input_label_cols=['percentageOfBaseline']) AS
+SELECT
+  *
+FROM
+  `PROJECT_NAME.tfl_data.ml_train`
+WHERE
+  percentageOfBaseline IS NOT NULL
+
+```
+
