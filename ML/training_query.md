@@ -16,7 +16,7 @@ SELECT
   CAST(EXTRACT(DAYOFWEEK FROM (PARSE_DATE("%d/%m/%Y", wt.dt))) AS STRING ) AS dow
 
 FROM
-  `tfl-PROJECT_NAME.tfl_data.crowd_table` AS ct
+  `PROJECT_NAME.tfl_data.crowd_table` AS ct
 
 INNER JOIN
   PROJECT_NAME.tfl_data.weather_table AS wt
@@ -24,20 +24,25 @@ ON
   ct.date = wt.dt;
 ```
 
-### Using this table, we can now create a simple regression model using BigQuery ML. This is also done via a query.
+### Using this table, we can now create a simple regression model using BigQuery ML. This is also done via a query. For example, in the following scripts we will predict crowd levels at London Bridge Station using weather data. 
 
 ```sql
 CREATE OR REPLACE MODEL
-  `tfl-PROJECT_NAME.tfl_data.crowd_model`
+  `PROJECT_NAME.tfl_data.crowd_model`
 OPTIONS
   (model_type='linear_reg',
   input_label_cols=['percentageOfBaseline']) AS
 SELECT
   *
 FROM
-  PROJECT_NAME.tfl_data.ml_train
+  tfl_data.ml_train
 WHERE
   percentageOfBaseline IS NOT NULL
 
 ```
 
+### We can then use this trained model to make predictions
+
+```sql
+SELECT * FROM ML.PREDICT(MODEL `PROJECT_NAME.tfl_data.crowd_model`, (SELECT * FROM tfl_data.prediction_table))
+```
