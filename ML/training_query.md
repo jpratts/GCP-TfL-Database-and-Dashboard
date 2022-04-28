@@ -46,3 +46,24 @@ WHERE
 ```sql
 SELECT * FROM ML.PREDICT(MODEL `PROJECT_NAME.tfl_data.crowd_model`, (SELECT * FROM tfl_data.prediction_table))
 ```
+
+### Notably, this is just going to create predictions using all previous data. If we want to predict crowdedness for the upcoming day we could use
+
+```sql
+SELECT * FROM ML.PREDICT(MODEL `PROJECT_NAME.tfl_data.crowd_model`,
+(SELECT
+  wt.dt,
+  wt.feels_day,
+  wt.clouds,
+  wt.uv,
+  CAST(EXTRACT(DAYOFWEEK FROM (PARSE_DATE("%d/%m/%Y", wt.dt))) AS STRING ) AS dow
+
+FROM
+  tfl_data.weather_table AS wt
+
+ORDER BY PARSE_DATE("%d/%m/%Y", wt.dt) DESC
+
+LIMIT 1)
+)
+```
+
