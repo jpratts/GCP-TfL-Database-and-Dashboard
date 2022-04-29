@@ -10,7 +10,7 @@ Transport for London (TfL) offers some very impressive data to the public. Howev
 
 We will address these questions by taking a look at one segment of TfL's data, it's bike point information (how many TfL Bicycles are being used). We will develop a set of **automated** ETL processes in Google Cloud Platform which will extract, store, and analyse the data of interest. Weather and datetime information will also be stored and used as predictors in our ML model - the aim of which is to provide an estimate of next-day bicycle usage. 
 
-Setup instructions & comments can be found in the following sections.
+Pipeline design, setup instructions & comments can be found in the following sections.
 
 -------------------------------
 
