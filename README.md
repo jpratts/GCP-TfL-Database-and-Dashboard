@@ -39,7 +39,7 @@ We will create our entire pipeline, from data extraction to dashboarding, using 
 - Data Studio: Dashboard of TfL usage and predictions, updated daily.
 - Big Query ML: Allows for the execution of ML models in standard SQL queries. We will use this to make some basic predictions on bicycle usage. 
   
-![Pipeline](https://user-images.githubusercontent.com/76081318/166061290-5fb93821-162f-408f-bf46-2151a5dd7191.jpg)
+![Pipeline](https://user-images.githubusercontent.com/76081318/166077680-41dc6a76-4104-46bf-8a32-da709a1795bc.png)
 
 </details>
 
