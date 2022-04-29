@@ -18,6 +18,13 @@ We can do this using the following pipeline:
 -------------------------------
 
 1. **Introduction**
+2. **Permissions**
+3. **Scheduler & Pub/Sub**
+4. **Cloud Functions**
+5. **BigQuery**
+6. **BigQuery ML**
+7. **Data Studio**
+8. **Model Retraining & Comments**
 
 ------------------------------
 
