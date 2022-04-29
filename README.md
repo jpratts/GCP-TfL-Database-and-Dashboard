@@ -61,3 +61,23 @@ In order to trigger our Cloud Function on a daily basis, we must configure a sys
 
 The Scheduler and Pub/Sub are now configured. We will next create the script which will be triggered by this system.
 
+</details>
+
+# 3. Cloud Functions
+<details>
+  <summary>Click to expand</summary>
+  
+-----------------
+- When creating the Cloud Function, you will first need to configure some settings before entering code. Most of these are self-explanatory (Function Name, Region, etc) or vary depending on use-case (e.g. Memory allocation; can be left default in this case). One setting which must be configured is Trigger. Ensure this is set to Cloud Pub/Sub and then select the Pub/Sub Topic we created in the last section. 
+![Func1](https://user-images.githubusercontent.com/76081318/166066339-9c740e5a-25cc-4977-b224-a4ea193e7e94.PNG)
+
+- We will then be presented with the Code view. We will be using Python 3.9.
+  
+- You can upload the Main.py and requirements.txt files or enter your own code depending on your requirements. In this case, the provided main.py script performs some ETL processes on TfL and weather data with the data being loaded into Big Query.
+  
+- Ensure that the Entry Point is the name of the defined function, in this case "pull_data". 
+  
+- The code, as provided here, also requires a gcp auth key, obtaining such a key is outside the scope of this guide but once attained, it can also be uploaded here. 
+  
+</details>
+
