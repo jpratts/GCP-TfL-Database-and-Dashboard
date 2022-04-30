@@ -17,10 +17,9 @@ Pipeline design, setup instructions & comments can be found in the following sec
 1. **Introduction**
 2. **Scheduler & Pub/Sub**
 3. **Cloud Functions**
-4. **BigQuery**
-5. **BigQuery ML**
-6. **Data Studio**
-7. **Model Retraining & Comments**
+4. **BigQuery ML**
+5. **Data Studio**
+6. **Model Retraining & Comments**
 
 ------------------------------
 
@@ -81,7 +80,7 @@ The Scheduler and Pub/Sub are now configured. We will next create the script whi
   
 </details>
 
-# 5. BigQuery ML
+# 4. BigQuery ML
 <details>
   <summary>Click to expand</summary>
   
