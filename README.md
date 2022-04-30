@@ -4,7 +4,7 @@
 Documentation in Progress
 
 
-Motivation: 
+### Motivation: 
 
 Transport for London (TfL) offers some very impressive data to the public. However, much of this is not easily accessible as it must be accessed via an API. Is there a way to easily extract this data and provide it in a more accessible form? Can we augment this data with information from other APIs in order to provide the public with some predictive analytics on TfL usage? 
 
