@@ -154,3 +154,12 @@ LIMIT 1)
 )
 ```
 </details>
+
+# 5. Data Studio
+<details>
+  <summary>Click to expand</summary>
+  
+----------------
+  ![DS](https://user-images.githubusercontent.com/76081318/166125321-a4ca76dd-da6a-4ceb-8c46-afdbc460c92e.PNG)
+
+</details>
